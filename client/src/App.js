@@ -28,22 +28,19 @@ class App extends React.Component {
       console.log(e.name);
     }));
     return (
-      <div className='cards'>
-        {/* {this.state.person.forEach(e => { */}
-          {/* return( */}
-          <div className="playerCard">
+      <>
+      <NavBar></NavBar>
+      <div className='roster'>
             {this.state.person.map(e => {
               return(
-                <div className>
-                  <h3>{e.name}</h3>
-                  <h3>{e.country}</h3>
+                <div className='playerCard'>
+                  <h3>Name : {e.name}</h3>
+                  <h3>country : {e.country}</h3>
                 </div>
               )
             })}
-          </div>
-          {/* )
-        })} */}
       </div>
+      </>
   )};
 }
 
