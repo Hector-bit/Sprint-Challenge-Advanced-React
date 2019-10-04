@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
+import NavBar from './components/navbar';
+import PlayerCard from './components/playcard';
 
-function App() {
+// function App() {
+
+//   const [player, setPlayer] = useState([])
+
+//   useEffect(() => {
+//     axios
+//       .get(
+//         "http://localhost:5000/api/players"
+//       )
+//       .then(res => {
+//         console.log(res.data);
+//         setPlayer(res.data);
+//       })
+
+//       .catch(err => console.log(err, 'something went wrong with .get'));
+//   }, []);
+
+//   {console.log(player)}
+
+//   return (
+//     <NavBar/>
+//     player.map(e => {
+//       return( 
+//       <div className="App">
+//         <div className="playerCard">
+//           <h3>{e.name}</h3>
+//           <p>{e.country}</p>
+//         </div>
+//     </div>)
+//     })
+//   );
+// };
+
+// export default App;
+
+function App () {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <NavBar/>
+    <PlayerCard/>
     </div>
-  );
-}
+  )
+};
 
 export default App;
