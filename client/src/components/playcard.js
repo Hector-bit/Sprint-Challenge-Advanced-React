@@ -18,17 +18,19 @@ function PlayerCard() {
     }, []);
   
     {console.log(player)}
-  
+
     return (
-      player.map(e => {
+    <div className='roster'>
+      {player.map(e => {
         return( 
           <div className="playerCard">
             <h3>Name : {e.name}</h3>
-            <p>country : {e.country}</p>
+            <p>Country : {e.country}</p>
           </div>
       )
-      })
-    );
+      })}
+    </div>
+    )
   };
   
   export default PlayerCard;

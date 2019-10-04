@@ -32,16 +32,17 @@
   }
 }
 
-/* #root{
+.roster{
   display: flex;
+  justify-content: center;
   width: 100%;
   flex-wrap: wrap;
-} */
+}
 
 .playerCard {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 25%;
   border: 2px solid black;
   padding: 3% 2%;
   margin: 1%;
