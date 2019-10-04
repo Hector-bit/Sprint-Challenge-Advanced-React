@@ -11,7 +11,6 @@ function PlayerCard() {
           "http://localhost:5000/api/players"
         )
         .then(res => {
-          console.log(res.data);
           setPlayer(res.data);
         })
   
@@ -24,8 +23,8 @@ function PlayerCard() {
       player.map(e => {
         return( 
           <div className="playerCard">
-            <h3>{e.name}</h3>
-            <p>{e.country}</p>
+            <h3>Name : {e.name}</h3>
+            <p>country : {e.country}</p>
           </div>
       )
       })
