@@ -2,50 +2,59 @@ import React from 'react';
 import './App.css';
 import NavBar from './components/navbar';
 import PlayerCard from './components/playcard';
+import axios from 'axios';
 
-// function App() {
+class App extends React.Component {
+  state = {
+    person: [],
+    personText: ''
+  };
 
-//   const [player, setPlayer] = useState([])
+  componentDidMount() {
+    // useEffect
+      axios
+      .get(`http://localhost:5000/api/players`)
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+          person: res.data
+        });
+      })
+      .catch(err => console.log(err));
+    }
 
-//   useEffect(() => {
-//     axios
-//       .get(
-//         "http://localhost:5000/api/players"
-//       )
-//       .then(res => {
-//         console.log(res.data);
-//         setPlayer(res.data);
-//       })
+  render() {
+    (this.state.person.forEach(e => {
+      console.log(e.name);
+    }));
+    return (
+      <div className='cards'>
+        {/* {this.state.person.forEach(e => { */}
+          {/* return( */}
+          <div className="playerCard">
+            {this.state.person.map(e => {
+              return(
+                <div className>
+                  <h3>{e.name}</h3>
+                  <h3>{e.country}</h3>
+                </div>
+              )
+            })}
+          </div>
+          {/* )
+        })} */}
+      </div>
+  )};
+}
 
-//       .catch(err => console.log(err, 'something went wrong with .get'));
-//   }, []);
-
-//   {console.log(player)}
+// function App () {
 
 //   return (
+//     <div className="App">
 //     <NavBar/>
-//     player.map(e => {
-//       return( 
-//       <div className="App">
-//         <div className="playerCard">
-//           <h3>{e.name}</h3>
-//           <p>{e.country}</p>
-//         </div>
-//     </div>)
-//     })
-//   );
+//     <PlayerCard/>
+//     </div>
+//   )
 // };
-
-// export default App;
-
-function App () {
-
-  return (
-    <div className="App">
-    <NavBar/>
-    <PlayerCard/>
-    </div>
-  )
-};
 
 export default App;
